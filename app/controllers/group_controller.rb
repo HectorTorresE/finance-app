@@ -2,6 +2,7 @@ class GroupController < ApplicationController
   def index
     @groups = Group.where(user: current_user).order('created_at DESC')
 
+    @sum = Entity.where(user: current_user).sum(:amount)
   end
 
   def new

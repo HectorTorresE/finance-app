@@ -1,29 +1,14 @@
-<%= form_for(resource, as: resource_name, data: { turbo: false }, url: registration_path(resource_name)) do |f| %>
-  <%= render partial: 'shared/nav_user', locals: {title: "REGISTER", form: f, button: "next", back: root_path} %>
-  <div class="inset-0 -z-10 mt-24 mb-24">
+<%= form_with model: @group, method:'post', class:'form',url: group_index_path do |f| %>
+  form_for(group, as: resource_name, data: { turbo: false }, url:
+  group_new_path)
+  <%= render partial: 'shared/nav_user', locals: {title: "Add Category", form: f, button: "create", back: group_index_path} %>
+  <div class="inset-0 -z-10 mt-20 mb-24">
     <div class="flex flex-row items-center mt-2 ml-2">
-      <img src=<%=image_path("user.png")%> id='avatar' class="w-14 h-auto"/>
-      <label id="upload-btn" for="user_image" class="ml-4 text-text pt-2">Upload Image</label>
-      <%= f.file_field :image, accept: 'image/png,image/jpeg', class:"hidden" %>
+      <img src=<%=image_path("icon.png")%> id='icon' class="w-14 h-auto"/>
+      <label id="upload-btn" for="group_icon" class="ml-4 text-text pt-2">Upload Image
+        <%= f.file_field :image, accept: 'image/png,image/jpeg', class:"hidden" %>
+      </label>
     </div>
-    <div class="">
-      <%= f.text_field :name, autocomplete: "name", placeholder: 'Full name' , class: "w-full mt-4 border-b-0" %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email' , class: "w-full border-b-0" %>
-      <%= f.password_field :password, autocomplete: "new-password", placeholder: 'Password', class: "w-full" %>
-    </div>
-    <div class="text-center mt-2">
-      <%= render "devise/shared/error_messages", resource: resource %>
-    </div>
+    <%= f.text_field :name, autocomplete: "name", placeholder: 'name' , class: "w-full mt-4" %>
   </div>
 <% end %>
-<script>
-  document.getElementById('user_image').addEventListener('change', (e) => {
-    const file = e.target.files[0];
-      document.getElementById('upload-btn').textContent = file.name;
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = readerEvent => {
-        document.getElementById('avatar').src = reader.result;
-      }
-  });
-</script>

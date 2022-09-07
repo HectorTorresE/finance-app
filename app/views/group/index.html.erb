@@ -1,20 +1,5 @@
 <div class="flex bg-main text-white justify-between absolute inset-x-0 top-0 items-center pb-3 pt-3 h-20 text-lg">
-  <a class="ml-3 fill-white" data-method="get">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      class="h-6 w-6"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      stroke-width="2"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        d="M4 6h16M4 12h16M4 18h16"
-      />
-    </svg>
-  </a>
+  <%= button_to 'Sing out', destroy_user_session_path, method: :delete, class: "ml-2"%>
   <h2>Catagories</h2>
   <div class="fill-white">
     <svg
@@ -36,17 +21,19 @@
 <div class="bg-text absolute inset-0 -z-10 mt-20 mb-24">
   <div class="flex flex-row w-full h-20 bg-white justify-between items-center px-6 border-2 border-text rounded">
     <h3 class="text-text text-base">Total</h3>
-    <h3 class="text-black text-base">$45.00</h3>
+    <h3 class="text-black text-base"><%= number_to_currency @sum %></h3>
   </div>
   <div class="overflow-y-auto h-[87%]">
     <%@groups.each do |group|%>
+    <a href=<%=group_entities_path(group_id: group.id )%>>
       <div class="flex flex-row rounded m-2 bg-white h-28" data-id=<%="group-#{group.id}"%>>
         <img src=<%=image_path("icon.png")%> class="w-fit h-auto"/>
         <div class="flex items-center w-full justify-between p-2">
           <p class="text-lg bold text-text justify-self-start truncate"> <%=group.name%> </br> <%=group.created_at.to_date.to_fs(:short)%> </p>
-          <p class="bold text text-color justify-self-end" >  <%=number_to_currency group.entities.where(user: current_user).sum(:amount)%> </p>
+          <p class="bold text text-color justify-self-end" >  <%=number_to_currency group.entities.where(user: current_user, group: group).sum(:amount)%> </p>
         </div>
       </div>
+      </a>
     <%end%>
   </div>
 

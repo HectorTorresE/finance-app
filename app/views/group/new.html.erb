@@ -1,6 +1,4 @@
 <%= form_with model: @group, method:'post', class:'form',url: group_index_path do |f| %>
-  form_for(group, as: resource_name, data: { turbo: false }, url:
-  group_new_path)
   <%= render partial: 'shared/nav_user', locals: {title: "Add Category", form: f, button: "create", back: group_index_path} %>
   <div class="inset-0 -z-10 mt-20 mb-24">
     <div class="flex flex-row items-center mt-2 ml-2">
