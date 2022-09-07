@@ -73,8 +73,10 @@ end
 
 gem 'devise'
 
-gem 'erb-formatter'
-
 gem 'rspec-rails'
 
 gem 'ffi'
+
+gem 'tailwindcss-rails', '~> 2.0'
+
+gem 'erb-formatter'
