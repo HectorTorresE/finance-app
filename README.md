@@ -21,7 +21,7 @@ You can try the functionality of this application by clicking:
 ## App video
 
 You watch a video of the app
-[video](https://www.loom.com/share/92e3dc2950d24270998b9eaac11be25f)
+[video](https://www.loom.com/share/557bdae32598412095b206e5d8b946d8)
 
 ## Getting Started
 
