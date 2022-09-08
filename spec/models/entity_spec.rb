@@ -5,7 +5,8 @@ RSpec.describe Entity, type: :system do
     Entity.destroy_all
     User.destroy_all
     @first_user = User.create(name: 'Jhon', email: 'test@gmail.com', password: '123456')
-    @entity = Entity.create(name: 'First entity', amount: 15.7, user: @first_user)
+    @group = Group.create(name: 'First group', icon: 'icon-test', user: @first_user)
+    @entity = Entity.create(name: 'First entity', amount: 15.7, user: @first_user, group: @group)
   end
 
   it 'Valid with all attributes' do
