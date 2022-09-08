@@ -18,11 +18,6 @@
 You can try the functionality of this application by clicking:    
 [Demo](https://my-finance-rails.herokuapp.com/)
 
-## App video
-
-You watch a video of the app
-[video](https://www.loom.com/share/557bdae32598412095b206e5d8b946d8)
-
 ## Getting Started
 
 **This project is an implementation of a Ruby on Rails blog app.**
