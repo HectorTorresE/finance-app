@@ -13,6 +13,16 @@
 - RSpec
 - PostgreSQL
 
+## Live demo
+
+You can try the functionality of this application by clicking:    
+[Demo](https://my-finance-rails.herokuapp.com/)
+
+## App video
+
+You watch a video of the app
+[video](https://www.loom.com/share/92e3dc2950d24270998b9eaac11be25f)
+
 ## Getting Started
 
 **This project is an implementation of a Ruby on Rails blog app.**
@@ -40,6 +50,9 @@ Install the dependencies with `bundle install`
 - GitHub: [@HectorTorres](https://github.com/HectorTorresE)
 - Twitter: [@HectorT](https://twitter.com/HectorT00406915)
 - LinkedIn: [@Hectorjte](https://www.linkedin.com/in/hectorjte/)
+
+## Credits
+[Original design idea by  Gregoire Vella on Behance](https://www.behance.net/gallery/19759151/Snapscan-iOs-design-and-branding)
 
 
 ## 🤝 Contributing
