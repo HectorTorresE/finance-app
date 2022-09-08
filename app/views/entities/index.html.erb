@@ -1,0 +1,46 @@
+
+<div class="flex bg-main text-white justify-between absolute inset-x-0 top-0 items-center pb-3 pt-3 h-20 text-lg">
+  <a class="ml-3 fill-white" data-method="get" href=<%= group_index_path%>>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 color-white" viewBox="0 0 20 20" fill="currentColor">
+       <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+      </svg>
+    </a>
+  <h2>Entities</h2>
+  <div class="fill-white">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-6 w-6 mr-3"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      stroke-width="2"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+      />
+    </svg>
+  </div>
+</div>
+<div class="bg-text absolute inset-0 -z-10 mt-20 mb-24">
+  <div class="flex flex-row w-full h-20 bg-white justify-between items-center px-6 border-2 border-text rounded">
+        <img src=<%=image_path("icon.png")%> class="w-20 h-20"/>
+        <div class="flex items-center w-full justify-between p-2">
+          <p class="text-lg bold text-text justify-self-start truncate"> <%=@group.name%></p>
+          <p class="bold text text-color justify-self-end" >  <%=number_to_currency @group.entities.where(user: current_user, group: @group).sum(:amount)%> </p>
+        </div>
+      </div>
+  <div class="overflow-y-auto h-[87%]">
+    <% @entities.each do |entity|%>
+      <div class="flex flex-row rounded m-2 items-center justify-between bg-white h-28">
+          <p class="text-lg bold text-text justify-self-start truncate ml-2"> <%=entity.name%> </br> <%=time_tag(entity.created_at,
+              "data-local": "time-ago")%> </p>
+          <p class="bold text text-color m-2 justify-self-end" >  <%=number_to_currency entity.amount%> </p>
+      </div>
+    <%end%>
+  </div>
+  </div>
+  <div class="flex bg-second h-24 items-center justify-center absolute inset-x-0 bottom-0 ">
+  <%= button_to 'New entity', new_group_entity_path(), method: :get , class: ' h-16 w-72 text-white border-2 border-white rounded' %>
+</div>

@@ -1,0 +1,12 @@
+<%= form_with model: @group, method:'post', class:'form',url: group_index_path do |f| %>
+  <%= render partial: 'shared/nav_user', locals: {title: "Add Category", form: f, button: "create", back: group_index_path} %>
+  <div class="inset-0 -z-10 mt-20 mb-24">
+    <div class="flex flex-row items-center mt-2 ml-2">
+      <img src=<%=image_path("icon.png")%> id='icon' class="w-14 h-auto"/>
+      <label id="upload-btn" for="group_icon" class="ml-4 text-text pt-2">Upload Image
+        <%= f.file_field :image, accept: 'image/png,image/jpeg', class:"hidden" %>
+      </label>
+    </div>
+    <%= f.text_field :name, autocomplete: "name", placeholder: 'name' , class: "w-full mt-4" %>
+  </div>
+<% end %>

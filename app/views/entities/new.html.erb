@@ -1,0 +1,7 @@
+<%= form_with model: @entity, method:'post', class:'form',url: group_entities_path(group_id: @group.id) do |f| %>
+  <%= render partial: 'shared/nav_user', locals: {title: "Add Entity", form: f, button: "create", back: group_entities_path} %>
+  <div class="inset-0 -z-10 mt-20 mb-24">
+    <%= f.text_field :name, autocomplete: "name", placeholder: 'Name' , class: "w-full mt-4" %>
+    <%= f.number_field  :amount, class: "w-full",placeholder: 'Amount'  %>
+  </div>
+<% end %>
